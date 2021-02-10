@@ -22,7 +22,7 @@ public class MathController {
     @GetMapping("/subtract/{number}/from/{numberTwo}")
     @ResponseBody
     public int subtractNumbers(@PathVariable int number, @PathVariable int numberTwo) {
-        return number - numberTwo;
+        return numberTwo - number;
     }
 
     //TODO: /multiply/4/and/5
