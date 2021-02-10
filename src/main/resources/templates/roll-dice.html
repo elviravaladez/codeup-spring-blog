@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Roll Dice</title>
+</head>
+<body>
+    <h1>Guess a number </h1>
+    <a href="#"
+       th:href="@{${n}}">1</a> <br>
+    <a href="#"
+       th:href="@{${n}}">2</a> <br>
+    <a href="#"
+       th:href="@{${n}}">3</a> <br>
+    <a href="#"
+       th:href="@{${n}}">4</a> <br>
+    <a href="#"
+       th:href="@{${n}}">5</a> <br>
+    <a href="#"
+       th:href="@{${n}}">6</a>
+
+<!--    <div>-->
+<!--        <span th:if="${n}" th:text="${n}">Hooray! You were correct!</span>-->
+<!--        <span th:unless="${n}">Your guess was incorrect. Try again!</span>-->
+<!--    </div>-->
+</body>
+</html>
