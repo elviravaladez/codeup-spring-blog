@@ -7,19 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Roll Dice</title>
+    <title>Index</title>
 </head>
 <body>
     <nav th:replace="partials/navbar :: navbar"></nav>
-    <h1>Guess a number </h1>
-    <ul>
-        <li><a th:href="@{/roll-dice/1}">1</a></li>
-        <li><a th:href="@{/roll-dice/2}">2</a></li>
-        <li><a th:href="@{/roll-dice/3}">3</a></li>
-        <li><a th:href="@{/roll-dice/4}">4</a></li>
-        <li><a th:href="@{/roll-dice/5}">5</a></li>
-        <li><a th:href="@{/roll-dice/6}">6</a></li>
-    </ul>
+
+    <h1>Here are all the posts!</h1>
+
+    <div th:each="post : ${posts}">
+        <h1 th:text="${post.title}"></h1>
+        <p th:text="${post.body}"></p>
+    </div>
 
     <footer th:replace="partials/footer :: footer"></footer>
 

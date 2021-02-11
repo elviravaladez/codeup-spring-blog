@@ -10,8 +10,7 @@
     <title>Roll Results</title>
 </head>
 <body>
-    <nav th:replace="partials/navbar :: navbar" >
-    </nav>
+    <nav th:replace="partials/navbar :: navbar" ></nav>
 
     <h1>You guessed: <span th:text="${n}"></span></h1>
     <h1>The number was: <span th:text="${randomNumber}"></span></h1>
@@ -20,8 +19,7 @@
 
     <a href="/roll-dice">Play again!</a>
 
-    <footer th:replace="partials/footer :: footer">
-    </footer>
+    <footer th:replace="partials/footer :: footer"></footer>
 
     <div th:replace="partials/scripts :: assets"></div>
 </body>
