@@ -10,7 +10,6 @@ import java.util.List;
 
 @Controller
 public class PostController {
-
     //TODO: Create a PostController class. This controller should return strings
     // for the following routes that describe what will ultimately be there.
     @GetMapping("/posts")
