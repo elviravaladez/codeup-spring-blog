@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 @Controller
 public class RollDiceController {
     //TODO: Create a page at /roll-dice that asks the user to guess
@@ -20,10 +22,21 @@ public class RollDiceController {
     }
 
     @GetMapping("/roll-dice/{n}")
-    public String rollDiceN(@PathVariable String n, Model model) {
+    public String rollDiceN(@PathVariable int n, Model model) {
+        String message;
 
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
+
+        if(n == randomNum) {
+            message = "Hooray! You guessed correctly!";
+        } else {
+            message = "Sorry! Try again!";
+        }
+
+        model.addAttribute("randomNumber", randomNum);
         model.addAttribute("n", n);
+        model.addAttribute("message", message);
 
-        return "roll-dice";
+        return "roll-results";
     }
 }
