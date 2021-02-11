@@ -9,22 +9,13 @@
 </head>
 <body>
     <h1>Guess a number </h1>
-    <a href="#"
-       th:href="@{${n}}">1</a> <br>
-    <a href="#"
-       th:href="@{${n}}">2</a> <br>
-    <a href="#"
-       th:href="@{${n}}">3</a> <br>
-    <a href="#"
-       th:href="@{${n}}">4</a> <br>
-    <a href="#"
-       th:href="@{${n}}">5</a> <br>
-    <a href="#"
-       th:href="@{${n}}">6</a>
-
-<!--    <div>-->
-<!--        <span th:if="${n}" th:text="${n}">Hooray! You were correct!</span>-->
-<!--        <span th:unless="${n}">Your guess was incorrect. Try again!</span>-->
-<!--    </div>-->
+    <ul>
+        <li><a th:href="@{/roll-dice/1}">1</a></li>
+        <li><a th:href="@{/roll-dice/2}">2</a></li>
+        <li><a th:href="@{/roll-dice/3}">3</a></li>
+        <li><a th:href="@{/roll-dice/4}">4</a></li>
+        <li><a th:href="@{/roll-dice/5}">5</a></li>
+        <li><a th:href="@{/roll-dice/6}">6</a></li>
+    </ul>
 </body>
 </html>
