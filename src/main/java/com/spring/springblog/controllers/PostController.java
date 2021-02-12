@@ -4,7 +4,6 @@ import com.spring.springblog.models.Post;
 import com.spring.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -18,8 +17,15 @@ public class PostController {
         this.postDao = postDao;
     }
 
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Home");
+        return "/home";
+    }
+
     @GetMapping("/posts")
     public String postsIndex(Model model) {
+        model.addAttribute("title", "Blog Posts");
         model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
@@ -31,7 +37,7 @@ public class PostController {
         Post singlePost = postDao.getOne(id);
 
         model.addAttribute("post", singlePost);
-        model.addAttribute("title", "Single Posts");
+        model.addAttribute("title", singlePost.getTitle());
 
         return "posts/show";
     }
@@ -69,7 +75,7 @@ public class PostController {
     public String updatePost(@ModelAttribute("post") Post singlePost, @PathVariable long id, Model model) {
         postDao.save(singlePost);
 
-        model.addAttribute("title", "Edit Post");
+        model.addAttribute("title", "Update Post");
         model.addAttribute("post", singlePost);
 
         return postView(id, model);
