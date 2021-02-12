@@ -17,6 +17,12 @@ public class PostController {
         this.postDao = postDao;
     }
 
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Home");
+        return "/home";
+    }
+
     @GetMapping("/posts")
     public String postsIndex(Model model) {
         model.addAttribute("title", "Blog Posts");
