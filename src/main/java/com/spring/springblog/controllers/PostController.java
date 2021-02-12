@@ -66,11 +66,12 @@ public class PostController {
     }
 
     @PostMapping("/posts/update/{id}")
-    public String updatePost(@ModelAttribute("post") Post post, @PathVariable long id, BindingResult result, Model model) {
-        postDao.save(post);
+    public String updatePost(@ModelAttribute("post") Post singlePost, @PathVariable long id, Model model) {
+        postDao.save(singlePost);
 
         model.addAttribute("title", "Edit Post");
-        model.addAttribute("post", post);
+        model.addAttribute("post", singlePost);
+
         return postView(id, model);
     }
 }
