@@ -14,10 +14,10 @@ public class Post {
     @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 2000)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
 
@@ -26,10 +26,10 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String body, long id) {
+    public Post(long id, String title, String body) {
+        this.id = id;
         this.title = title;
         this.body = body;
-        this.id = id;
     }
 
     //getters and setters
