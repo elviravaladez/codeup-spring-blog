@@ -1,14 +1,26 @@
 package com.spring.springblog.models;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "posts")
 public class Post {
-    //TODO: Create a Post class. This class will ultimately represent a POST record
-    // from our database. The class should have private properties
-    // and getters and setters for a title and body.
+    //TODO: Add the appropriate JPA annotations to your Post class to create the table and columns.
 
     //properties
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
+
+    @Column(nullable = false, length = 100)
     private String title;
+
+    @Column(nullable = false, length = 2000)
     private String body;
+
+
 
     //constructors
     public Post() {
