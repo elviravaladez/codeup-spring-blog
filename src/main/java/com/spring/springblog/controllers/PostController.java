@@ -4,13 +4,12 @@ import com.spring.springblog.models.Post;
 import com.spring.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
+    //TODO: Use dependency injection to use an instance of the new Posts interface(PostRepository).
     // Dependency injection -> where we create a Repository instance and
     //  initialize it in the controller class constructor.
     private final PostRepository postDao;
@@ -19,7 +18,6 @@ public class PostController {
         this.postDao = postDao;
     }
 
-    //posts/index
     @GetMapping("/posts")
     public String postsIndex(Model model) {
         model.addAttribute("posts", postDao.findAll());
@@ -28,28 +26,13 @@ public class PostController {
 
     //TODO: Create a PostController class. This controller should return strings
     // for the following routes that describe what will ultimately be there.
-//    @GetMapping("/posts")
-//    public String postsIndex(Model model){
-//        Post post1 = new Post("First Post", "This is my first post", 1);
-//        Post post2 = new Post("Second Post", "This is my 2nd post", 2);
-//        Post post3 = new Post("Third Post", "This is my 3rd post", 3);
-//
-//        List<Post> postList = new ArrayList<>();
-//        postList.add(post1);
-//        postList.add(post2);
-//        postList.add(post3);
-//
-//        model.addAttribute("title", "All Posts");
-//        model.addAttribute("posts", postList);
-//
-//        return "posts/index";
-//    }
-
     @GetMapping("/posts/{id}")
-    public String postView(Model model){
-        Post post = new Post("First Post", "This is my first post", 1);
+    public String postView(@PathVariable long id, Model model){
+        Post singlePost = postDao.getOne(id);
+
+        model.addAttribute("post", singlePost);
         model.addAttribute("title", "Single Posts");
-        model.addAttribute("post", post);
+
         return "posts/show";
     }
 
@@ -63,5 +46,31 @@ public class PostController {
     @ResponseBody
     public String createPost(){
         return "Creating a new post...";
+    }
+
+    //TODO: Implement the edit and delete functionality using forms to submit
+    // these requests using @PostMapping annotations.
+    @GetMapping("/posts/delete/{id}")
+    public String deletePost(@PathVariable long id, Model model) {
+        postDao.deleteById(id);
+        return postsIndex(model);
+    }
+
+    @GetMapping("/posts/edit/{id}")
+    public String editPostForm(@PathVariable long id, Model model) {
+        Post singlePost = postDao.getOne(id);
+        model.addAttribute("title", "Edit Post");
+        model.addAttribute("post", singlePost);
+
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/update/{id}")
+    public String updatePost(@ModelAttribute("post") Post post, @PathVariable long id, BindingResult result, Model model) {
+        postDao.save(post);
+
+        model.addAttribute("title", "Edit Post");
+        model.addAttribute("post", post);
+        return postView(id, model);
     }
 }
