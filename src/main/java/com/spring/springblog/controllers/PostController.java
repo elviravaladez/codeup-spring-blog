@@ -59,7 +59,7 @@ public class PostController {
     @GetMapping("/posts/delete/{id}")
     public String deletePost(@PathVariable long id, Model model) {
         postDao.deleteById(id);
-        return postsIndex(model);
+        return "redirect:/posts";
     }
 
     @GetMapping("/posts/edit/{id}")
@@ -78,6 +78,6 @@ public class PostController {
         model.addAttribute("title", "Update Post");
         model.addAttribute("post", singlePost);
 
-        return postView(id, model);
+        return "redirect:/posts";
     }
 }
