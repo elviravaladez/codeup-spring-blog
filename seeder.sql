@@ -20,3 +20,7 @@ insert into posts (title, body) values ('Future-proofed asynchronous toolset', '
 insert into posts (title, body) values ('Organic 3rd generation help-desk', 'vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin');
 insert into posts (title, body) values ('Re-engineered reciprocal utilisation', 'platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius');
 insert into posts (title, body) values ('Implemented transitional website', 'rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus');
+
+
+# Inserting a user
+insert into users (email, password, username) values ('user@email.com', 'codeup', 'user');
