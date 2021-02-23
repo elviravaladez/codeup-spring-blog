@@ -70,7 +70,7 @@ public class PostController {
         newPost.setTitle(title);
         newPost.setBody(body);
 
-        //Will throw if no users are in the database
+        //Will throw an exception if no users are in the database
         User user = userDao.findAll().get(0);
         newPost.setUser(user);
 
