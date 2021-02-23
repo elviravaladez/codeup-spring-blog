@@ -54,29 +54,24 @@ public class PostController {
     // a user to it. For now, it does not matter which user is assigned, so long
     // as some user is assigned. In the next lesson we will make this
     // functionality more robust.
+
+    //TODO: Change your controller method for showing the post creation form to
+    // actually show the form in create.html. This method should
+    // pass a new (i.e. empty) Post object to the view.
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String postForm(Model model){
-        Post newPost = new Post();
+    public String showPostForm(Model model){
         model.addAttribute("title", "Creating Post");
-        model.addAttribute("post", newPost);
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String createPost(@RequestParam String title, @RequestParam String body){
-        Post newPost = new Post();
-        newPost.setTitle(title);
-        newPost.setBody(body);
-
-        //Will throw an exception if no users are in the database
+    public String createPost(@ModelAttribute Post post){
         User user = userDao.findAll().get(0);
-        newPost.setUser(user);
+        post.setUser(user);
+        Post savePost = postDao.save(post);
 
-        postDao.save(newPost);
-
-        return "redirect:/posts/" + newPost.getId();
+        return "redirect:/posts";
     }
 
     //TODO: Implement the edit and delete functionality using forms to submit
