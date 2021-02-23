@@ -7,10 +7,9 @@ import com.spring.springblog.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-//this class acts as a seed with our code and will seed our database
+//this class acts as a seed with our code and will seed our db
 @Component
 public class PostStartupRunner implements CommandLineRunner { //the CommandLineRunner interface lets us have a run method that lets us run the code inside the method
-
     //repositories injected into the PostStartupRunner class
     private final UserRepository userDao;
     private final PostRepository postDao;
@@ -27,8 +26,8 @@ public class PostStartupRunner implements CommandLineRunner { //the CommandLineR
             return;
         }
         User user = new User();
-        user.setUsername("userTwo");
-        user.setEmail("userTwo@email.com");
+        user.setUsername("user");
+        user.setEmail("user@email.com");
         user.setPassword("codeup");
         userDao.save(user);
 

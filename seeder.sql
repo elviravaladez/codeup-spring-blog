@@ -1,5 +1,8 @@
 USE springblog_db;
 
+# TRUNCATE TABLE posts;
+
+
 insert into posts (title, body) values ('Synergistic reciprocal concept', 'mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus');
 insert into posts (title, body) values ('Up-sized static productivity', 'vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat');
 insert into posts (title, body) values ('Re-engineered intermediate pricing structure', 'a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut');
@@ -23,4 +26,4 @@ insert into posts (title, body) values ('Implemented transitional website', 'rho
 
 
 # Inserting a user
-insert into users (email, password, username) values ('user@email.com', 'codeup', 'user');
+# insert into users (email, password, username) values ('user@email.com', 'codeup', 'user');

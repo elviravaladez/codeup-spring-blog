@@ -7,7 +7,7 @@
         <h1 class="my-4">Create Post</h1>
 
         <form th:action="@{/posts/create}" th:method="POST" th:object="${post}">
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="title">Title</label>
                 <input class="form-control" type="text" id="title" th:field="*{title}" />
             </div>
