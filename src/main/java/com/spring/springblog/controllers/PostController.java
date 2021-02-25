@@ -14,16 +14,16 @@ public class PostController {
     //TODO: Use dependency injection to use an instance of the new Posts interface(PostRepository).
     // Dependency injection -> where we create a Repository instance and
     //  initialize it in the controller class constructor.
-    private final PostRepository postDao;
+    private final PostRepository postsDao;
 
     //TODO: Create a UserRepository interface (in repositories) and inject it
     // into the PostController.
-    private final UserRepository userDao;
+    private final UserRepository usersDao;
 
     //constructor
-    public PostController(PostRepository postDao, UserRepository userDao) {
-        this.postDao = postDao;
-        this.userDao = userDao;
+    public PostController(PostRepository postsDao, UserRepository usersDao) {
+        this.postsDao = postsDao;
+        this.usersDao = usersDao;
     }
 
     //methods
@@ -36,13 +36,13 @@ public class PostController {
     @GetMapping("/posts")
     public String postsIndex(Model model) {
         model.addAttribute("title", "Blog Posts");
-        model.addAttribute("posts", postDao.findAll());
+        model.addAttribute("posts", postsDao.findAll());
         return "posts/index";
     }
 
     @GetMapping("/posts/{id}")
     public String postView(@PathVariable long id, Model model){
-        Post singlePost = postDao.getOne(id);
+        Post singlePost = postsDao.getOne(id);
 
         model.addAttribute("post", singlePost);
         model.addAttribute("title", singlePost.getTitle());
@@ -67,9 +67,9 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
-        User user = userDao.findAll().get(0);  //will replace with service
+        User user = usersDao.findAll().get(0);  //will replace with service
         post.setUser(user);
-        Post savePost = postDao.save(post);
+        Post savePost = postsDao.save(post);
 
         return "redirect:/posts";
     }
@@ -78,13 +78,13 @@ public class PostController {
     // these requests using @PostMapping annotations.
     @GetMapping("/posts/delete/{id}")
     public String deletePost(@PathVariable long id, Model model) {
-        postDao.deleteById(id);
+        postsDao.deleteById(id);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/edit/{id}")
     public String editPostForm(@PathVariable long id, Model model) {
-        Post singlePost = postDao.getOne(id);
+        Post singlePost = postsDao.getOne(id);
         model.addAttribute("title", "Edit Post");
         model.addAttribute("post", singlePost);
 
@@ -93,7 +93,7 @@ public class PostController {
 
     @PostMapping("/posts/update/{id}")
     public String updatePost(@ModelAttribute("post") Post singlePost, @PathVariable long id, Model model) {
-        postDao.save(singlePost);
+        postsDao.save(singlePost);
 
         model.addAttribute("title", "Update Post");
         model.addAttribute("post", singlePost);
