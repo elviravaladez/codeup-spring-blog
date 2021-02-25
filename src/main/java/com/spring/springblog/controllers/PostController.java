@@ -67,7 +67,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
-        User user = userDao.findAll().get(0);
+        User user = userDao.findAll().get(0);  //will replace with service
         post.setUser(user);
         Post savePost = postDao.save(post);
 

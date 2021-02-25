@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 
 //this class acts as a seed with our code and will seed our db
 @Component
-public class PostStartupRunner implements CommandLineRunner { //the CommandLineRunner interface lets us have a run method that lets us run the code inside the method
+public class Seeder implements CommandLineRunner { //the CommandLineRunner interface lets us have a run method that lets us run the code inside the method
     //repositories injected into the PostStartupRunner class
     private final UserRepository userDao;
     private final PostRepository postDao;
 
-    public PostStartupRunner(UserRepository userDao, PostRepository postDao) {
+    public Seeder(UserRepository userDao, PostRepository postDao) {
         this.userDao = userDao;
         this.postDao = postDao;
     }
