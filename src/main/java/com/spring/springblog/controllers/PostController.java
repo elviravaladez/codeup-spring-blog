@@ -4,6 +4,8 @@ import com.spring.springblog.models.Post;
 import com.spring.springblog.models.User;
 import com.spring.springblog.repositories.PostRepository;
 import com.spring.springblog.repositories.UserRepository;
+import com.spring.springblog.services.EmailService;
+import com.spring.springblog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +22,16 @@ public class PostController {
     // into the PostController.
     private final UserRepository usersDao;
 
+    private final UserService userService;
+    private final EmailService emailService;
+    //Note: If a property is final, it has to be injected through the constructor
+
     //constructor
-    public PostController(PostRepository postsDao, UserRepository usersDao) {
+    public PostController(PostRepository postsDao, UserRepository usersDao, UserService userService, EmailService emailService) {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
+        this.userService = userService;
+        this.emailService = emailService;
     }
 
     //methods
@@ -67,9 +75,15 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
-        User user = usersDao.findAll().get(0);  //will replace with service
+        User user = userService.loggedInUser();  //will replace with service
         post.setUser(user);
-        Post savePost = postsDao.save(post);
+        Post savedPost = postsDao.save(post);
+
+        //send an email once post is saved
+        String subject = "New Post Created!";
+        String body = "Dear " + savedPost.getUser().getUsername() + ",\n\nYou have successfully created a post. Woo-hoo! The ID for your new post titled \"" + savedPost.getTitle() + "\" is " + savedPost.getId() + ".\n\nHappy posting!";
+
+        emailService.prepareAndSend(savedPost,subject, body);
 
         return "redirect:/posts";
     }
@@ -92,11 +106,10 @@ public class PostController {
     }
 
     @PostMapping("/posts/update/{id}")
-    public String updatePost(@ModelAttribute("post") Post singlePost, @PathVariable long id, Model model) {
+    public String updatePost(@PathVariable long id, @ModelAttribute("post") Post singlePost) {
+        User user = userService.loggedInUser();
+        singlePost.setUser(user);
         postsDao.save(singlePost);
-
-        model.addAttribute("title", "Update Post");
-        model.addAttribute("post", singlePost);
 
         return "redirect:/posts";
     }
