@@ -1,6 +1,5 @@
 package com.spring.springblog;
 
-import com.spring.springblog.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -39,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         //define how to log in
         http.formLogin()
             .loginPage("/login")
-            .defaultSuccessUrl("/home") // user's home page, it can be any URL
+            .defaultSuccessUrl("/") // user's home page, it can be any URL
             .permitAll() // Anyone can go to the login page - don't have to be logged in
 
             /* Logout configuration */

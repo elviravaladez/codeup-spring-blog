@@ -1,4 +1,4 @@
-package com.spring.springblog.services;
+package com.spring.springblog;
 
 import com.spring.springblog.models.User;
 import com.spring.springblog.models.UserWithRoles;
