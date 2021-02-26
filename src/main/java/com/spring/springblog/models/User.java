@@ -15,10 +15,10 @@ public class User {
     @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -38,12 +38,10 @@ public class User {
 //    }
 
     public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-        //The line below was not initially a part of the constructor
-        posts = copy.posts;
+        this.id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        this.email = copy.email;
+        this.username = copy.username;
+        this.password = copy.password;
     }
 
     //getters and setters
