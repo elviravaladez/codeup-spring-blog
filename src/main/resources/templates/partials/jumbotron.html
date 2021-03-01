@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Footer</title>
+    <title>Jumbotron</title>
 </head>
 <body>
-    <footer th:fragment="footer" class="navbar fixed-bottom d-flex justify-content-center">
-        <div>
-            <p class="text-center">ⓒ Elvira Codes 2021</p>
+    <div th:fragment="jumbotron" class="jumbotron jumbotron-fluid" id="main-jumbotron">
+        <div class="container" id="jumbotron-text-container">
+            <h1 class="display-4 text-center"><span id="elvira">ELVIRA</span></h1>
+            <h2 class="text-center"><span id="codes-text"><strong><span class="elvira-codes-tags"><</span></strong>CODES<strong><span class="elvira-codes-tags">/></span></strong></span></h2>
         </div>
-    </footer>
+    </div>
 </body>
 </html>

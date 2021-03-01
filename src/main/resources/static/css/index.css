@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#main-jumbotron {
+    background-color: #faf8f2;
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+#elvira {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#codes-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter !important;
+    font-size: 1.5em;
+}
+
+.elvira-codes-tags {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder !important;
+}
+
+#jumbotron-text-container {
+    align-content: center;
+}
+
+.all-posts-container {
+    padding-bottom: 6em;
+}
+
+footer {
+    height: 100px;
+    background-color: #faf8f2;
+}
