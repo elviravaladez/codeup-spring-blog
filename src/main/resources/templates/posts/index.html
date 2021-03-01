@@ -3,10 +3,11 @@
 <head th:replace="partials/head :: head"></head>
 <body>
     <nav th:replace="partials/navbar :: navbar"></nav>
+    <div th:replace="partials/jumbotron :: jumbotron"></div>
 
     <h1 class="text-center"><strong>Here are all the posts!</strong></h1>
     <br>
-    <div class="container">
+    <div class="container all-posts-container">
         <div th:each="post : ${posts}" class="text-center mb-2 align">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="wfpb">
