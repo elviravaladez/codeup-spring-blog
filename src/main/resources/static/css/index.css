@@ -3,39 +3,88 @@
 }
 html, body {
     height: 100%;
+    background-color: #faf8f2;
+    font-family: 'Nunito', sans-serif;
+}
+
+#main-navbar {
+    background-color: #f4ebc1 !important;
 }
 
 #main-jumbotron {
-    background-color: #faf8f2;
-    text-align: center;
-    width: 100%;
-    height: auto;
+    background-color: #AFC4C0;
+    background-image: url("/img/blogging-bee-logo.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    height: 30vh;
 }
 
-#elvira {
-    font-family: 'Montserrat', sans-serif;
-}
-
-#codes-text {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: lighter !important;
-    font-size: 1.5em;
-}
-
-.elvira-codes-tags {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bolder !important;
-}
-
-#jumbotron-text-container {
-    align-content: center;
+.welcome-container {
+    height: 50vh;
+    background-image: url("/img/welcome.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 .all-posts-container {
-    padding-bottom: 6em;
+    padding-bottom: 7em;
 }
 
-footer {
-    height: 100px;
-    background-color: #faf8f2;
+#username, #email, #password, #title, #body,.btn {
+    border-radius: 28px !important;
+}
+
+.card {
+    padding-bottom: 1em !important;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
+.card, .card-body {
+    border-radius: 20px !important;
+    border: hidden !important;
+}
+
+.card-img-top {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+
+.login-main-container, .register-main-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.individual-post-container {
+    padding: 2em;
+    border-radius: 28px !important;
+    background-color: white;
+    margin: auto;
+}
+
+
+.login-container, .register-container {
+    max-width: 500px;
+    padding: 2em;
+    border-radius: 28px !important;
+    background-color: white;
+    margin: auto 2em;
+}
+
+.login-body {
+    background-color: #AFC4C0;
+}
+
+.sign-up-body {
+    background-color: #c1a1d3;
+}
+
+textarea {
+    height: auto;
 }

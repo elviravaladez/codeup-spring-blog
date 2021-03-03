@@ -4,23 +4,21 @@
 <body>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <div th:replace="partials/jumbotron :: jumbotron"></div>
+    <div class="container">
+        <div class="all-posts-container">
+            <div th:each="post : ${posts}" class="text-center mb-2 align">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${post.title}"></h5>
+                        <p class="card-text"><strong>Written By: </strong><span th:text="${post.user.username}"></span></p>
 
-    <h1 class="text-center"><strong>Here are all the posts!</strong></h1>
-    <br>
-    <div class="container all-posts-container">
-        <div th:each="post : ${posts}" class="text-center mb-2 align">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="wfpb">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${post.title}"></h5>
-                    <p class="card-text" th:text="${post.body}"></p>
-                    <a th:href="@{|/posts/${post.id}|}" class="btn btn-primary">View Post</a>
+                        <a th:href="@{|/posts/${post.id}|}" class="btn btn-outline-secondary">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer th:replace="partials/footer :: footer"></footer>
     <div th:replace="partials/scripts :: assets"></div>
 </body>
 </html>

@@ -17,7 +17,8 @@ public class RollDiceController {
     // based on whether or not they guessed the correct number.
 
     @GetMapping("/roll-dice")
-    public String rollDiceView() {
+    public String rollDiceView(Model model) {
+        model.addAttribute("title", "Roll Dice");
         return "roll-dice";
     }
 
@@ -36,6 +37,7 @@ public class RollDiceController {
         model.addAttribute("randomNumber", randomNum);
         model.addAttribute("n", n);
         model.addAttribute("message", message);
+        model.addAttribute("title", "Roll Results");
 
         return "roll-results";
     }

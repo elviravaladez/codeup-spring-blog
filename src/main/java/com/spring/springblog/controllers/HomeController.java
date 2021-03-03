@@ -22,17 +22,19 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "home";
+        return "redirect:/home";
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(Model model) {
+        model.addAttribute("title", "Login");
         return "login";
     }
 
     @GetMapping("/sign-up")
     public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("title", "Sign Up");
         return "sign-up";
     }
 

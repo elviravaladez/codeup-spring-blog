@@ -68,7 +68,7 @@ public class PostController {
     // pass a new (i.e. empty) Post object to the view.
     @GetMapping("/posts/create")
     public String showPostForm(Model model){
-        model.addAttribute("title", "Creating Post");
+        model.addAttribute("title", "Create Post");
         model.addAttribute("post", new Post());
         return "posts/create";
     }

@@ -10,24 +10,30 @@
     <title>Navbar</title>
 </head>
 <body>
-	<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" th:href="@{/posts}">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<nav th:fragment="navbar" id="main-navbar" class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/posts}">
+				<img src="/img/bee-logo.png" height="45" width="45" /></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/home}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/posts}">Posts</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/posts/create}">Create Post</a>
-				</li>
-			</ul>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/posts}">Posts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/posts/create}">Create Post</a>
+					</li>
+				</ul>
+				<form class="form-inline m-md-1" th:action="@{/login}" method="get">
+					<input id="login-btn" class="btn btn-block btn-info my-2 my-sm-0 m-1" type="submit" value="Log In" />
+				</form>
+				<form class="form-inline m-md-1" th:action="@{/sign-up}" method="get">
+					<input id="signup-btn" class="btn btn-block btn-secondary my-2 my-sm-0 m-1" type="submit" value="Sign Up" />
+				</form>
+			</div>
 		</div>
 	</nav>
 </body>
