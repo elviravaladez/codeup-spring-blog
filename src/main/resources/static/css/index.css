@@ -90,6 +90,6 @@ textarea {
 }
 
 .error-messages {
-    color: grey;
+    color: #ec4646;
     font-weight: bolder;
 }
