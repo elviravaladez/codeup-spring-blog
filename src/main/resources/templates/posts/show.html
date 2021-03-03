@@ -5,7 +5,7 @@
     <nav th:replace="partials/navbar :: navbar"></nav>
     <div class="individual-post-main-container container mt-5">
         <div class="individual-post-container container text-center">
-            <h2 th:text="${post.title}"></h2>
+            <h2 th:text="${post.title}" class="title"></h2>
             <p th:text="${post.body}"></p>
             <p><strong>Written By: </strong><span th:text="${post.user.username}"></span></p>
 

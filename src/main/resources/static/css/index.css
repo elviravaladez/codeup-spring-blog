@@ -40,7 +40,7 @@ html, body {
     padding-bottom: 1em !important;
 }
 
-.card-title {
+.card-title, .title {
     text-transform: capitalize;
 }
 .card, .card-body {
