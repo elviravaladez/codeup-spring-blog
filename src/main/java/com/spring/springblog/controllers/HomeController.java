@@ -26,12 +26,6 @@ public class HomeController {
         return "welcome";
     }
 
-    @GetMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("title", "Home");
-        return "home";
-    }
-
     @GetMapping("/login")
     public String showLoginForm(Model model) {
         model.addAttribute("title", "Login");
