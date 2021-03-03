@@ -21,8 +21,15 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String home() {
-        return "redirect:/home";
+    public String welcome(Model model) {
+        model.addAttribute("title", "Welcome to Blogging Bee");
+        return "welcome";
+    }
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Home");
+        return "home";
     }
 
     @GetMapping("/login")
