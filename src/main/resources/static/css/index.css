@@ -88,3 +88,8 @@ html, body {
 textarea {
     height: auto;
 }
+
+.error-messages {
+    color: grey;
+    font-weight: bolder;
+}

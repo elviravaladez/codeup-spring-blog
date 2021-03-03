@@ -8,7 +8,10 @@ import com.spring.springblog.services.EmailService;
 import com.spring.springblog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class PostController {
@@ -74,8 +77,14 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String createPost(@ModelAttribute Post post){
-        User user = userService.loggedInUser();  //will replace with service
+    public String createPost(@Valid @ModelAttribute Post post, Errors validation, Model model){
+        if(validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("post", post);
+            model.addAttribute("title", "Error Creating Post");
+            return "posts/create";
+        }
+        User user = userService.loggedInUser();
         post.setUser(user);
         Post savedPost = postsDao.save(post);
 

@@ -2,6 +2,8 @@ package com.spring.springblog.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "posts")
@@ -14,9 +16,12 @@ public class Post {
     @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
+    @NotBlank(message ="*A post MUST have a title")
+    @Size(min = 3, message = "*A title must be at least 3 characters in length")
     @Column(nullable = false)
     private String title;
 
+    @NotBlank(message = "*A post MUST have a body")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
