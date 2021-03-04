@@ -28,12 +28,29 @@ html, body {
     background-position:center;
 }
 
+.error-404-container {
+    height: 50vh;
+    width: 100%;
+    background-image: url("/img/error-404.png") !important;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
 .all-posts-container {
     padding-bottom: 7em;
 }
 
 #username, #email, #password, #title, #body,.btn {
     border-radius: 28px !important;
+}
+
+.return-home-btn {
+    background-color: #FFCC4D;
+}
+
+.return-home-btn:hover {
+    background-color: #B4923C;
 }
 
 .card {

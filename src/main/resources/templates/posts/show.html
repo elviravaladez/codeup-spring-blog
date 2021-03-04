@@ -10,7 +10,7 @@
             <p><strong>Written By: </strong><span th:text="${post.user.username}"></span></p>
 
             <div class="container">
-                <a th:href="@{|/posts/edit/${post.id}}"
+                <a th:href="@{|/posts/edit/${post.id}|}"
                    class="btn btn-outline-secondary">
                     Edit
                 </a>
