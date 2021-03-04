@@ -115,7 +115,14 @@ public class PostController {
     }
 
     @PostMapping("/posts/update/{id}")
-    public String updatePost(@PathVariable long id, @ModelAttribute("post") Post singlePost) {
+    public String updatePost(@PathVariable long id, @Valid @ModelAttribute("post") Post singlePost, Errors validation, Model model) {
+        if(validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("post", singlePost);
+            model.addAttribute("title", "Error Updating Post");
+            return "posts/edit";
+        }
+
         User user = userService.loggedInUser();
         singlePost.setUser(user);
         postsDao.save(singlePost);
