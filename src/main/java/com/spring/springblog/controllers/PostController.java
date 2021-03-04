@@ -37,12 +37,12 @@ public class PostController {
         this.emailService = emailService;
     }
 
-    //methods
-    @GetMapping("/home")
-    public String home(Model model) {
-        model.addAttribute("title", "Home");
-        return "/home";
-    }
+//    //methods
+//    @GetMapping("/home")
+//    public String home(Model model) {
+//        model.addAttribute("title", "Home");
+//        return "/home";
+//    }
 
     @GetMapping("/posts")
     public String postsIndex(Model model) {
