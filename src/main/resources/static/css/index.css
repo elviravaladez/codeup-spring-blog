@@ -37,6 +37,15 @@ html, body {
     background-position:center;
 }
 
+.error-500-container {
+    height: 50vh;
+    width: 100%;
+    background-image: url("/img/error-500.png") !important;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
 .all-posts-container {
     padding-bottom: 7em;
 }
